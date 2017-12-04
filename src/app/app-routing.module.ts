@@ -1,12 +1,15 @@
 import { NgModule }              from '@angular/core';
 import { RouterModule, Routes }  from '@angular/router';
-
-import { CrisisListComponent } from './crisis-center/crisis-list.component';
+import { CanDeactivateGuard }       from './can-deactivate-guard.service';
 import { PageNotFoundComponent } from './page-not-found.component';
 
 const appRoutes: Routes = [
-  { path: 'crisis-center', component: CrisisListComponent },
-  { path: '',   redirectTo: '/heroes', pathMatch: 'full' },
+  {
+    path: 'crisis-center',
+    loadChildren: 'app/crisis-center/crises.module#CrisisCenterModule',
+    data: { preload: true }
+  },
+  { path: '',   redirectTo: '/superheroes', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -16,6 +19,9 @@ const appRoutes: Routes = [
   ],
   exports: [
     RouterModule
+  ],
+  providers: [
+    CanDeactivateGuard
   ]
 })
 export class AppRoutingModule {}

@@ -5,15 +5,14 @@ import { RouterModule, Routes } from '@angular/router'
 
 import { AppComponent } from './app.component';
 import { Route } from '@angular/compiler/src/core';
-import { CrisisListComponent } from './crisis-center/crisis-list.component';
 import { PageNotFoundComponent } from './page-not-found.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeroesModule } from './heroes/heroes.module';
+import { DialogService } from './dialog.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CrisisListComponent,
     PageNotFoundComponent
   ],
   imports: [
@@ -22,7 +21,7 @@ import { HeroesModule } from './heroes/heroes.module';
     HeroesModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [DialogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
