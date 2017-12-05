@@ -9,16 +9,20 @@ import { PageNotFoundComponent } from './page-not-found.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeroesModule } from './heroes/heroes.module';
 import { DialogService } from './dialog.service';
+import { LoginComponent } from './login.component';
+import { LoginRoutingModule } from './login-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
     PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HeroesModule,
+    LoginRoutingModule,
     AppRoutingModule,
   ],
   providers: [DialogService],
