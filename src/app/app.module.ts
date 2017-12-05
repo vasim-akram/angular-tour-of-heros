@@ -1,26 +1,31 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
+import { RouterModule, Routes } from '@angular/router'
 
 import { AppComponent } from './app.component';
-import { HeroesComponent } from './heros/heros.component';
-import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-import { HeroService } from './hero.service';
-import { MessageService } from './message.service';
-import { MessageComponent } from './message/message.component';
+import { Route } from '@angular/compiler/src/core';
+import { PageNotFoundComponent } from './page-not-found.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HeroesModule } from './heroes/heroes.module';
+import { DialogService } from './dialog.service';
+import { LoginComponent } from './login.component';
+import { LoginRoutingModule } from './login-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroesComponent,
-    HeroDetailComponent,
-    MessageComponent
+    LoginComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HeroesModule,
+    LoginRoutingModule,
+    AppRoutingModule,
   ],
-  providers: [HeroService, MessageService],
+  providers: [DialogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
